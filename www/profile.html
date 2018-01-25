@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/profile_main.less.css" class="main-less">
+    <link rel="stylesheet" type="text/css" href="css/general.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+
+    <script src="js/app.js"></script>
+    <script src="intelxdk.js"></script>
+    <script src="cordova.js"></script>
+    <script src="xhr.js"></script>
+    <script src="xdk/init-dev.js"></script>
+    <script type="application/javascript" src="lib/jquery.min.js"></script>
+    <script type="application/javascript" src="marginal/marginal-position.min.js"></script>
+    <script type="application/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/slideout.js"></script>
+  </head>
+
+  <body class="bg">
+
+    <nav id="menu">
+      <div class="profile-sidebar">
+        <!-- SIDEBAR USERPIC -->
+        <div class="profile-userpic">
+          <img src="" class="img-responsive" alt="" id="img_user">
+        </div>
+        <!-- END SIDEBAR USERPIC -->
+        <!-- SIDEBAR USER TITLE -->
+        <div class="profile-usertitle">
+          <div class="profile-usertitle-name" id="nama_user">
+            {nama user}
+          </div>
+          <div class="profile-usertitle-job" id="kelas_user">
+            {kelas user}
+          </div>
+        </div>
+        <!-- END SIDEBAR USER TITLE -->
+        <!-- SIDEBAR BUTTONS -->
+        <div class="profile-userbuttons">
+          <button type="button" class="btn btn-success btn-sm" id="profile_user" onclick="window.location='profile.html'">Profile</button>
+          <!-- <button type="button" class="btn btn-danger btn-sm">Message</button> -->
+        </div>
+        <!-- END SIDEBAR BUTTONS -->
+        <!-- SIDEBAR MENU -->
+        <div class="profile-usermenu">
+          <ul class="nav">
+            <li class="active">
+              <a href="#" onclick="window.location='menu.html'">
+              <i class="glyphicon glyphicon-home"></i>
+              Beranda </a>
+            </li>
+            
+            <li>
+              <a href="#" onclick="window.location='bahan_tugas.html'">
+              <i class="glyphicon glyphicon-th-list"></i>
+              Bahan & Tugas </a>
+            </li>
+
+           <!--  <li>
+              <a href="#" onclick="window.location=''">
+              <i class="glyphicon glyphicon-th-list"></i>
+              Quiz & Ujian Online </a>
+            </li> -->
+
+            <li>
+              <a href="#" onclick="window.location='uts.html'">
+              <i class="glyphicon glyphicon-th-list"></i>
+              Nilai UTS </a>
+            </li>
+
+            <li>
+              <a href="#" onclick="window.location='raport.html'">
+              <i class="glyphicon glyphicon-th-list"></i>
+              Raport </a>
+            </li>
+
+            <li>
+              <a href="#" onclick="window.location='pengumuman.html'">
+              <i class="glyphicon glyphicon-th-list"></i>
+              Pengumuman </a>
+            </li>
+
+            <li>
+              <a href="#" onclick="window.location='jadwal_pelajaran.html'">
+              <i class="glyphicon glyphicon-th-list"></i>
+              Jadwal Pelajaran </a>
+            </li>
+
+          </ul>
+        </div>
+        <!-- END MENU -->
+      </div>
+    </nav>
+
+    <main id="panel">
+        <div class="upage" id="mainpage">
+        <div class="upage-outer">
+          <div class="uib-header header-bg container-group inner-element uib_w_1" data-uib="layout/header" data-ver="0">
+            <h2>PROFILE</h2>
+            <div class="widget-container wrapping-col single-centered"></div>
+            <div class="widget-container content-area horiz-area wrapping-col left"></div>
+            <div class="widget-container content-area horiz-area wrapping-col right"></div>
+          </div>
+          <div class="upage-content ac0 content-area vertical-col left">
+            <div class="panel-group no_wrap widget uib_w_5 d-margins" data-uib="twitter%20bootstrap/accordion" data-ver="1" id="bs-accordion-0">
+              <div class="panel widget uib_w_6 panel-primary" data-uib="twitter%20bootstrap/collapsible" data-ver="1">
+                <div class="panel-heading">
+                  <h4 class="panel-title">
+             <a class="accordion-toggle" data-toggle="collapse" href="#bs-accordion-group-0" data-parent="#bs-accordion-0">Ubah Profile</a>
+         </h4>
+                </div>
+                <div id="bs-accordion-group-0" class="panel-collapse collapse in">
+                  <div class="panel-body">
+                    <div class="col uib_col_1 single-col" data-uib="layout/col" data-ver="0">
+                      <div class="widget-container content-area vertical-col">
+                        
+                        <div class="alert alert-success" style="display: none" id="alert_profile_berhasil">
+                          <strong>Berhasil!</strong> Profile berhasil diubah
+                        </div>
+  
+                        <div class="alert alert-danger" style="display: none" id="alert_profile_gagal">
+                          {alert_profile_gagal}
+                        </div>
+
+                        <div class="table-thing widget d-margins" data-uib="twitter%20bootstrap/input" data-ver="1">
+                          <label class="narrow-control label-top-left">Nama</label>
+                          <input class="wide-control form-control default" type="text" id="nama">
+                        </div>
+
+                       <!--  <div class="table-thing widget d-margins" data-uib="twitter%20bootstrap/input" data-ver="1">
+                          <label class="narrow-control label-top-left">Kelas</label>
+                          <input class="wide-control form-control default" type="text" id="kelas">
+                        </div> -->
+
+                        <div class="table-thing widget d-margins" data-uib="twitter%20bootstrap/input" data-ver="1">
+                          <label class="narrow-control label-top-left">Kelas</label>
+                          <!-- <input class="wide-control form-control default" type="text" id="kelas"> -->
+                          <select name="kelas" id="kelas"></select>
+                        </div>
+
+                       <!--  <div class="table-thing widget uib_w_3 d-margins" data-uib="twitter%20bootstrap/input" data-ver="1">
+                          <label class="narrow-control label-top-left">Kota Lahir</label>
+                          <input class="wide-control form-control default" type="text">
+                        </div>
+                        <div class="table-thing widget uib_w_4 d-margins" data-uib="twitter%20bootstrap/input" data-ver="1">
+                          <label class="narrow-control label-top-left">Tanggal Lahir</label>
+                          <input class="wide-control form-control default" type="text">
+                        </div> -->
+
+                        <span class="uib_shim"></span>
+                        
+                        <button type="button" class="btn btn-success" onclick="ubah_profile()">Simpan</button>  
+
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- <div class="panel widget uib_w_7 panel-success" data-uib="twitter%20bootstrap/collapsible" data-ver="1">
+                <div class="panel-heading">
+                  <h4 class="panel-title">
+             <a class="accordion-toggle" data-toggle="collapse" href="#bs-accordion-group-1" data-parent="#bs-accordion-0">Ganti Foto</a>
+         </h4>
+                </div>
+                <div id="bs-accordion-group-1" class="panel-collapse collapse">
+                  <div class="panel-body">
+                    <div class="col uib_col_2 single-col" data-uib="layout/col" data-ver="0">
+                      <div class="widget-container content-area vertical-col">
+
+                        
+
+                        <span class="uib_shim"></span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div> -->
+              <div class="panel widget uib_w_8 panel-danger" data-uib="twitter%20bootstrap/collapsible" data-ver="1">
+                <div class="panel-heading">
+                  <h4 class="panel-title">
+             <a class="accordion-toggle" data-toggle="collapse" href="#bs-accordion-group-2" data-parent="#bs-accordion-0">Ganti Password</a>
+         </h4>
+                </div>
+                <div id="bs-accordion-group-2" class="panel-collapse collapse">
+                  <div class="panel-body">
+                    <div class="col uib_col_3 single-col" data-uib="layout/col" data-ver="0">
+                      <div class="widget-container content-area vertical-col">
+
+
+                        <div class="alert alert-success" style="display: none" id="alert_pass_berhasil">
+                          <strong>Berhasil!</strong> Password berhasil diubah
+                        </div>
+  
+                        <div class="alert alert-danger" style="display: none" id="alert_pass_gagal">
+                          {alert_pass_gagal}
+                        </div>
+
+
+
+
+                        <div class="table-thing widget d-margins" data-uib="twitter%20bootstrap/input" data-ver="1">
+                          <label class="narrow-control label-top-left">Password Lama</label>
+                          <input class="wide-control form-control default" type="text" id="pass_lama">
+                        </div>
+
+                        <div class="table-thing widget d-margins" data-uib="twitter%20bootstrap/input" data-ver="1">
+                          <label class="narrow-control label-top-left">Password Baru</label>
+                          <input class="wide-control form-control default" type="text" id="pass_baru">
+                        </div>
+
+                        <div class="table-thing widget d-margins" data-uib="twitter%20bootstrap/input" data-ver="1">
+                          <label class="narrow-control label-top-left">Ulangi</label>
+                          <input class="wide-control form-control default" type="text" id="pass_ulangi">
+                        </div>
+
+                        <button type="button" class="btn btn-success" onclick="ubah_password()">Ganti Password</button>
+
+                        <span class="uib_shim"></span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <script type="text/javascript" src="js/general.js"></script>
+    <script type="text/javascript">
+      
+       $('#alert_profile_berhasil').hide();
+       $('#alert_profile_gagal').hide();
+
+       $('#nama').val(localStorage.getItem('nama'));
+       $('#kelas').val(localStorage.getItem('kode_kelas'));
+
+       get_kelas();
+
+       function get_kelas(){
+          $.get(rootWebService + "get_kelas", {            
+            kelas:'kelas'
+          })
+          .done(function (data) {
+
+              $('#kelas').html(data);
+
+          });
+
+
+          return false;     
+       }
+
+       function ubah_profile(){
+        $.post(rootWebService + "ubah_profile", { 
+            id_siswa : localStorage.getItem('id_siswa'),           
+            nama : $('#nama').val(),
+            kelas: $('#kelas').val()
+        }, 'json')
+        .done(function (data) {
+
+            $('#alert_profile_berhasil').hide();
+            $('#alert_profile_gagal').hide();
+
+            if (data.status === 'profile_gagal_diubah') {
+                $('#alert_profile_gagal').html('<strong>Gagal</strong> Profile gagal diubah!');
+                $('#alert_profile_gagal').show();
+            } else{
+                $('#alert_profile_berhasil').html('<strong>Berhasil</strong> Profile berhasil diubah');
+                $('#alert_profile_berhasil').show();
+            }
+
+        });
+
+        return false;     
+      }
+
+      $('#alert_pass_berhasil').hide();
+      $('#alert_pass_gagal').hide();
+
+
+
+      function ubah_password(){
+        $.post(rootWebService + "ubah_password", {
+            id_siswa : localStorage.getItem('id_siswa'),
+            pass_lama: $('#pass_lama').val(),
+            pass_baru: $('#pass_baru').val(),
+            pass_ulangi: $('#pass_ulangi').val()
+        }, 'json')
+        .done(function (data) {
+
+            $('#alert_pass_berhasil').hide();
+            $('#alert_pass_gagal').hide();
+
+            if (data.status === 'pass_lama_salah') {
+                $('#alert_pass_gagal').html('<strong>Gagal</strong> Password lama salah!');
+                $('#alert_pass_gagal').show();
+            } else if(data.status === 'pass_ulangi_salah') {
+                $('#alert_pass_gagal').html('<strong>Gagal</strong> Password baru tidak sama!');
+                $('#alert_pass_gagal').show();
+            }else{
+                $('#alert_pass_berhasil').html('<strong>Berhasil</strong> Password berhasil diubah');
+                $('#alert_pass_berhasil').show();
+            }
+
+        });
+
+        return false;     
+      }
+
+    </script>
+  </body>
+
+</html>

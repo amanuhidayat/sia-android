@@ -26,6 +26,8 @@
                         localStorage.setItem('nisn',data.nisn);
                         localStorage.setItem('kode_kelas',data.kode_kelas);
                         localStorage.setItem('kode_jurusan',data.kode_jurusan);
+                        localStorage.setItem('nama',data.nama);
+                        localStorage.setItem('foto',data.foto)
                         //$.mobile.changePage($(document.location.href = "dashboard.html"), 'slide');
                         window.location = "menu.html";
                     }

@@ -24,9 +24,12 @@
 
 // ...additional event handlers here...
 
+// var rootWebService = "http://localhost/sia-smk-futuhiyyah/webservice.php?cmd=";
+// var imageFolder = "http://localhost/sia-smk-futuhiyyah/foto_siswa/"; 
+
 
 var rootWebService = "http://192.168.157.1/sia-smk-futuhiyyah/webservice.php?cmd=";
- 
+var imageFolder = "http://192.168.157.1/sia-smk-futuhiyyah/foto_siswa/"; 
 
 //======================onesignal============================
 //https://documentation.onesignal.com/docs/intel-xdk-setup

@@ -52,6 +52,15 @@
          window.location = "raport.html";
     });
     
+        /* button  .uib_w_8 */
+    $(document).on("click", ".uib_w_8", function(evt)
+    {
+        localStorage.clear();
+        window.location = "index.html";
+        /* your code goes here */ 
+//         return false;
+    });
+    
     }
  document.addEventListener("app.Ready", register_event_handlers, false);
 })();
